@@ -1,38 +1,68 @@
-**Analyses et exposition des données spotify:**
-Ce projet vise à extraire des données spotify dans un fichier CSV ensuite les transformer (nettoyer) et les charger dans une base de donnée Mongodb, puis exposer ces données via API FasteAPI, pour permettre des opérations CRUD et des statistiques.
+**Analyse et Exposition des Données Spotify:**
+
+Ce projet permet d'extraire des données Spotify depuis un fichier CSV, de les transformer et de les charger dans une base de données MongoDB. Ensuite, une API FastAPI est exposée pour gérer les données via des opérations CRUD et des statistiques.
 
 **Structure du projet:**
+
 TP/
 │── Data/                  # Dossier contenant les fichiers de données CSV
 │── scripts/               # Scripts de traitement des données
 │   │── extract.py         # Extraction des données depuis le CSV
 │   │── transform.py       # Nettoyage et transformation des données
 │   │── load.py            # Chargement des données dans MongoDB
-│── requirements.txt       # Dépendances du projet
+│── fastapi_app/           # Dossier contenant l'application FastAPI
+│   │── main.py            # Point d'entrée de l'API FastAPI
+│── dags/                  # Dossier contenant les scripts d'automatisation Airflow
+│   │── spotify_pipeline_dag.py # Script Airflow pour l'orchestration du pipeline
+│── requirements.txt       # Liste des dépendances du projet
 │── README.md              # Documentation du projet
+Étapes pour lancer l'application
 
-📌 Le fichier extract.py permet de lire le fichier CSV et de charger les données dans un DataFrame Pandas.
+1. Installer MongoDB
+Pour stocker les données, MongoDB doit être installé et exécuté. Voici les étapes pour démarrer MongoDB sur ton environnement local.
 
-📌 Le fichier transform.py effectue les opérations suivantes :
+a. Démarrer MongoDB
 
-Remplacement des valeurs manquantes par "unknown"
+Ouvre un terminal et exécute les commandes suivantes pour démarrer MongoDB :
 
-Conversion de la colonne ts en format datetime
+mongod --dbpath ~/data/db
+b. Connexion à MongoDB
 
-Conversion de ms_played en entier et ajout de minutes_played
+Ouvre un autre terminal et lance MongoDB avec mongosh :
 
-Extraction du jour de la semaine (day_of_week) et de l'heure (hour_of_day)
+mongosh
+Cela permettra de démarrer MongoDB Compass et tu pourras voir la base de données et les collections créées avec les documents insérés au format JSON.
 
-Nettoyage des chaînes de caractères (suppression des espaces inutiles, format en title case)
+2. Installer les dépendances du projet
+Avant de commencer, il est nécessaire d'installer toutes les dépendances du projet. Utilise pip pour cela :
 
-Suppression des doublons et filtrage des écoutes de moins de 5 secondes
 
-📌 Le fichier load.py insère les données nettoyées dans la base MongoDB 
-*on doit se connecter sur mongodb avec le shell et on doit instaler mongodb compass, on tape les commandes suivantes:
-🔧mongod --dbpath ~/data/db
-🔧on ouvre un autre terminale et on tape: mongosh
-cela permet de démarrer directement MongoDB Compass, ou on verra la base de donnée crée avec la collection et les documents insérer sous forme json.
+pip install -r requirements.txt
+3. Exécuter le pipeline de traitement des données
+Le pipeline de traitement des données est constitué de trois étapes : extraction, transformation, et chargement dans MongoDB. Pour exécuter le script qui orchestre cela, exécute la commande suivante :
 
-On verifie que les données sont bien insérer sur la base de donnée MongoDB.
 
-🔧 Requirement.txt contient toutes les dépendances nécéssaire pour le projet.
+cd dags
+python spotify_pipeline_dag.py
+Ce script Airflow va lire les données du fichier CSV, les transformer, et les charger dans MongoDB.
+
+4. Lancer l'API FastAPI
+Une fois les données chargées dans MongoDB, tu peux lancer l'API FastAPI pour exposer les opérations CRUD et les statistiques.
+
+a. Navigue jusqu'au dossier fastapi_app :
+
+cd fastapi_app
+b. Lance l'API avec Uvicorn :
+
+
+uvicorn main:app --reload
+Cela démarrera le serveur FastAPI sur http://127.0.0.1:8000. L'API sera disponible pour recevoir des requêtes.
+
+5. Accéder à la documentation de l'API
+Une fois l'API lancée, tu peux accéder à la documentation interactive générée automatiquement par FastAPI via Swagger UI à l'adresse suivante :
+
+http://127.0.0.1:8000/docs
+Tu peux y tester toutes les routes CRUD ainsi que les statistiques de manière interactive.
+
+6. Vérification des données dans MongoDB
+Pour vérifier que les données ont été correctement insérées dans MongoDB, tu peux naviguer dans MongoDB Compass et consulter la base de données, la collection, et les documents insérés.
