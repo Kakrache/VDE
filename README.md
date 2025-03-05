@@ -1,21 +1,38 @@
-# VDE
-crée un projet sur git
-Le pipeline à mettre en place comprend 5 grandes étapes :
-**Extraction des données depuis un fichier CSV :**
-📌 Chargement du fichier CSV.
-   Nous utilisons `pandas` pour lire le fichier CSV qui contient les données 'SpotifyHistory.csv.
+**Analyses et exposition des données spotify:**
+Ce projet vise à extraire des données spotify dans un fichier CSV ensuite les transformer (nettoyer) et les charger dans une base de donnée Mongodb, puis exposer ces données via API FasteAPI, pour permettre des opérations CRUD et des statistiques.
 
-  **Transformation et Nettoyage des Données avec pandas:**
+**Structure du projet:**
+TP/
+│── Data/                  # Dossier contenant les fichiers de données CSV
+│── scripts/               # Scripts de traitement des données
+│   │── extract.py         # Extraction des données depuis le CSV
+│   │── transform.py       # Nettoyage et transformation des données
+│   │── load.py            # Chargement des données dans MongoDB
+│── requirements.txt       # Dépendances du projet
+│── README.md              # Documentation du projet
 
-📌 Appliquer les règles suivantes :
-#Gestion des valeurs manquantes : Remplacer reason_start et reason_end manquants par "unknown".
-#Conversion des types : Transformer ts en format datetime, ms_played en entier.
+📌 Le fichier extract.py permet de lire le fichier CSV et de charger les données dans un DataFrame Pandas.
 
-#Création de nouvelles colonnes
+📌 Le fichier transform.py effectue les opérations suivantes :
 
-    minutes_played = ms_played / 60000
-    day_of_week = Jour de la semaine (Monday, Tuesday, etc.)
-    hour_of_day = Heure de la journée (ex : 13 pour 13h00)
-#Nettoyage des chaînes de caractères : Supprimer espaces inutiles, mettre en format titre (title case).
-#Suppression des doublons : Vérifier et éliminer les écoutes identiques (ts, artist_name, track_name).
-#Filtrage : Exclure les écoutes de moins de 5 secondes (ms_played < 5000).
+Remplacement des valeurs manquantes par "unknown"
+
+Conversion de la colonne ts en format datetime
+
+Conversion de ms_played en entier et ajout de minutes_played
+
+Extraction du jour de la semaine (day_of_week) et de l'heure (hour_of_day)
+
+Nettoyage des chaînes de caractères (suppression des espaces inutiles, format en title case)
+
+Suppression des doublons et filtrage des écoutes de moins de 5 secondes
+
+📌 Le fichier load.py insère les données nettoyées dans la base MongoDB 
+*on doit se connecter sur mongodb avec le shell et on doit instaler mongodb compass, on tape les commandes suivantes:
+🔧mongod --dbpath ~/data/db
+🔧on ouvre un autre terminale et on tape: mongosh
+cela permet de démarrer directement MongoDB Compass, ou on verra la base de donnée crée avec la collection et les documents insérer sous forme json.
+
+On verifie que les données sont bien insérer sur la base de donnée MongoDB.
+
+🔧 Requirement.txt contient toutes les dépendances nécéssaire pour le projet.
