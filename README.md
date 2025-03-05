@@ -4,7 +4,19 @@ Ce projet permet d'extraire des données Spotify depuis un fichier CSV, de les t
 
 **Structure du projet:**
 
-TP/ │── Data/ # Dossier contenant les fichiers de données CSV │── scripts/ # Scripts de traitement des données │ │── extract.py # Extraction des données depuis le CSV │ │── transform.py # Nettoyage et transformation des données │ │── load.py # Chargement des données dans MongoDB │── fastapi_app/ # Dossier contenant l'application FastAPI │ │── main.py # Point d'entrée de l'API FastAPI │── dags/ # Dossier contenant les scripts d'automatisation Airflow │ │── spotify_pipeline_dag.py # Script Airflow pour l'orchestration du pipeline │── requirements.txt # Liste des dépendances du projet │── README.md # Documentation du projet
+'''TP/''''
+'''│── Data/# Dossier contenant les fichiers de données CSV'''
+'''│── scripts/# Scripts de traitement des données'''
+'''│   │── extract.py# Extraction des données depuis le CSV'''
+'''│   │── transform.py# Nettoyage et transformation des données'''
+'''│   │── load.py# Chargement des données dans MongoDB'''
+'''│── fastapi_app/# Dossier contenant l'application FastAPI'''
+'''│   │── main.py# Point d'entrée de l'API FastAPI'''
+'''│── dags/# Dossier contenant les scripts d'automatisation Airflow'''
+'''│   │── spotify_pipeline_dag.py # Script Airflow pour l'orchestration du pipeline'''
+'''│── requirements.txt# Liste des dépendances du projet'''
+'''│── README.md# Documentation du projet
+Étapes pour lancer l'application'''
 
 1. Installer MongoDB
 Pour stocker les données, MongoDB doit être installé et exécuté. Voici les étapes pour démarrer MongoDB sur ton environnement local.
