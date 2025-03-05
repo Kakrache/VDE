@@ -4,19 +4,19 @@ Ce projet permet d'extraire des données Spotify depuis un fichier CSV, de les t
 
 **Structure du projet:**
 
-'''TP/''''
-'''│── Data/# Dossier contenant les fichiers de données CSV'''
-'''│── scripts/# Scripts de traitement des données'''
-'''│   │── extract.py# Extraction des données depuis le CSV'''
-'''│   │── transform.py# Nettoyage et transformation des données'''
-'''│   │── load.py# Chargement des données dans MongoDB'''
-'''│── fastapi_app/# Dossier contenant l'application FastAPI'''
-'''│   │── main.py# Point d'entrée de l'API FastAPI'''
-'''│── dags/# Dossier contenant les scripts d'automatisation Airflow'''
-'''│   │── spotify_pipeline_dag.py # Script Airflow pour l'orchestration du pipeline'''
-'''│── requirements.txt# Liste des dépendances du projet'''
-'''│── README.md# Documentation du projet
-Étapes pour lancer l'application'''
+TP/
+│── Data/                  # Dossier contenant les fichiers de données CSV
+│── scripts/               # Scripts de traitement des données
+│   │── extract.py         # Extraction des données depuis le CSV
+│   │── transform.py       # Nettoyage et transformation des données
+│   │── load.py            # Chargement des données dans MongoDB
+│── fastapi_app/           # Dossier contenant l'application FastAPI
+│   │── main.py            # Point d'entrée de l'API FastAPI
+│── dags/                  # Dossier contenant les scripts d'automatisation Airflow
+│   │── spotify_pipeline_dag.py # Script Airflow pour l'orchestration du pipeline
+│── requirements.txt       # Liste des dépendances du projet
+│── README.md              # Documentation du projet
+Étapes pour lancer l'application
 
 1. Installer MongoDB
 Pour stocker les données, MongoDB doit être installé et exécuté. Voici les étapes pour démarrer MongoDB sur ton environnement local.
@@ -60,6 +60,7 @@ Cela démarrera le serveur FastAPI sur http://127.0.0.1:8000. L'API sera disponi
 
 5. Accéder à la documentation de l'API
 Une fois l'API lancée, tu peux accéder à la documentation interactive générée automatiquement par FastAPI via Swagger UI à l'adresse suivante :
+
 
 http://127.0.0.1:8000/docs
 Tu peux y tester toutes les routes CRUD ainsi que les statistiques de manière interactive.
