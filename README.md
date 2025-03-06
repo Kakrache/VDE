@@ -67,3 +67,15 @@ Tu peux y tester toutes les routes CRUD ainsi que les statistiques de manière i
 
 6. Vérification des données dans MongoDB
 Pour vérifier que les données ont été correctement insérées dans MongoDB, tu peux naviguer dans MongoDB Compass et consulter la base de données, la collection, et les documents insérés.
+
+Pour resumé, le Dags est un workflow qui exécute les tâches dans un ordre bien définit:
+*Automatisé le pipeline ETL
+*définir les étapes du pipeline sous forme de taches
+*Planifier l'éxecution de ces taches avec intervalle régulier
+*Gérer les erreurs et surveiller les éxecutions vial'interface Airflow
+
+Ce fichier est le point d'entrée de ton API FastAPI. Il permet :
+*D'exposer les données stockés dans mongodb via endpoints RESET (CRUD et statistiques)
+*Intéragir avec les données via des requêtes HTTP(GET, POST, PUT, DELETE )
+*De sezrvir de backend pour toute applications front qui consommerait ces 
+données.
