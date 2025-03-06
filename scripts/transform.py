@@ -36,4 +36,5 @@ df["ms_played"].min()  # afficher la val la plus petite pour verifier si il a a 
 print(df.head())
 
 df.to_csv("data/data_cleaned.csv", index= False)
+
 print(len(df))

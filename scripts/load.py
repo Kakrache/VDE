@@ -17,6 +17,7 @@ print("Connexion réussie à MongoDB !")
 data_to_insert = df.to_dict(orient='records')
 collection.insert_many(data_to_insert)
 
+
 for doc in collection.find().limit(5):
     print(doc)
 
