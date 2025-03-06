@@ -12,8 +12,8 @@ default_args = {
 dag = DAG(
     "spotify_pipeline",
     default_args=default_args,
-    schedule_interval="@daily",
-    catchup=False
+    schedule="@daily",
+   
 )
 
 def run_script(script_name):
@@ -39,5 +39,6 @@ load_task = PythonOperator(
     op_args=["load.py"],
     dag=dag
 )
+
 
 extract_task >> transform_task >> load_task
