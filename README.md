@@ -36,13 +36,13 @@ Cela permettra de démarrer MongoDB Compass et tu pourras voir la base de donné
 2. Installer les dépendances du projet
 Avant de commencer, il est nécessaire d'installer toutes les dépendances du projet. Utilise pip pour cela :
 
-
 pip install -r requirements.txt
-3. Exécuter le pipeline de traitement des données
-Le pipeline de traitement des données est constitué de trois étapes : extraction, transformation, et chargement dans MongoDB. Pour exécuter le script qui orchestre cela, exécute la commande suivante :
 
+3. Exécuter le pipeline de traitement des données
+Le pipeline de traitement des données est constitué de trois étapes : extraction, transformation, et chargement dans MongoDB. Pour exécuter le script qui orchestre cela, exécute la commande suivante::
 
 cd dags
+
 python spotify_pipeline_dag.py
 Ce script Airflow va lire les données du fichier CSV, les transformer, et les charger dans MongoDB.
 
@@ -79,3 +79,6 @@ Ce fichier est le point d'entrée de ton API FastAPI. Il permet :
 *Intéragir avec les données via des requêtes HTTP(GET, POST, PUT, DELETE )
 *De sezrvir de backend pour toute applications front qui consommerait ces 
 données.
+
+*Pour tester notre API, avec une requête POST avec Postman, on clique sur la boutton "Try it out" de la méthode POST ---> Requete Body---> on selectionne le json puis on colle ici ----> on execute
+Ensuite on a sur Mongodb Compass, on refresh, et on, vois bien si le document est bien insérer dans notre collection. on peut tester les autres méthode DELETE, TP-ARTISTS etc 
