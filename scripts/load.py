@@ -14,6 +14,7 @@ db = client["spotify_history"]
 collection = db["history_data"]
 print("Connexion réussie à MongoDB !")
 
+
 data_to_insert = df.to_dict(orient='records')
 collection.insert_many(data_to_insert)
 

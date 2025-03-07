@@ -27,6 +27,7 @@ df["album_name"] = df["album_name"].str.split().str.join(" ")
 
 #supprimer les doublons pour les colonnes données
 df.drop_duplicates( subset= ["ts", "artist_name", "track_name"], keep = "first", inplace= True)
+
 print(len(df))
 
 #filtrer la colonne ts(ts < 5000 a exxlure)
