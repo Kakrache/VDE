@@ -45,6 +45,8 @@ Le pipeline de traitement des données est constitué de trois étapes : extract
 
 **python spotify_pipeline_dag.py**
 
+On trouve aussi le pipeline ETL avec SPARK dans le fichier ETL_pyspark.py
+
 Ce script Airflow va lire les données du fichier CSV, les transformer, et les charger dans MongoDB.
 
 # 4. Lancer l'API FastAPI
