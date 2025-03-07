@@ -121,12 +121,14 @@ protobuf==5.29.3
 psutil==7.0.0
 ptyprocess==0.7.0
 pure_eval==0.2.3
+py4j==0.10.9.7
 pycparser==2.22
 pydantic==2.10.6
-pydantic_core==2.30.0
+pydantic_core==2.27.2
 Pygments==2.19.1
 PyJWT==2.10.1
 pymongo==4.11.1
+pyspark==3.5.5
 python-daemon==3.1.2
 python-dateutil==2.9.0.post0
 python-nvd3==0.16.0
