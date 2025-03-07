@@ -41,9 +41,9 @@ pip install -r requirements.txt
 # 3. Exécuter le pipeline de traitement des données
 Le pipeline de traitement des données est constitué de trois étapes : extraction, transformation, et chargement dans MongoDB. Pour exécuter le script qui orchestre cela, exécute la commande suivante::
 
-**cd dags --->aller dans le répertoire du fichier:**
+**cd dags --->aller dans le répertoire du fichier**
 
-**python spotify_pipeline_dag.py:**
+**python spotify_pipeline_dag.py**
 
 Ce script Airflow va lire les données du fichier CSV, les transformer, et les charger dans MongoDB.
 
